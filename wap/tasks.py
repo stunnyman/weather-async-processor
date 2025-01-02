@@ -1,15 +1,15 @@
 from celery import Celery
 from wap.models.weather_service import WeatherService
 from wap.models.city import City
-from wap.utils.utils import filter_temperature, WEATHERAPI_KEY, WEATHERAPI_URL, CELERY_BROKER_URL, CELERY_RESULT_BACKEND
+from wap.utils.utils import filter_temperature, CURRENT_API_URL, CURRENT_API_KEY, CELERY_BROKER_URL, CELERY_RESULT_BACKEND
 import os
 import json
 
 
 app = Celery('weather_tasks', broker=CELERY_BROKER_URL)
 weather_service = WeatherService(
-    api_url=WEATHERAPI_URL,
-    api_key=WEATHERAPI_KEY
+    api_url=CURRENT_API_URL,
+    api_key=CURRENT_API_KEY
 )
 app.conf.result_backend = CELERY_RESULT_BACKEND
 

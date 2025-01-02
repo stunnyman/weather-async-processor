@@ -4,11 +4,13 @@ from fastapi import HTTPException
 from wap.utils.logger import logger
 
 WEATHERAPI_URL = os.getenv('WEATHERAPI_URL', 'https://api.weatherapi.com/v1/current.json')
-WEATHERAPI_KEY = os.getenv('WEATHERAPI_KEY')
 WEATHERBIT_URL = os.getenv('WEATHERBIT_URL', 'https://api.weatherbit.io/v2.0/current')
-WEATHERBIT_KEY = os.getenv('WEATHERBIT_KEY')
+CURRENT_API_URL = os.getenv('CURRENT_API_URL', WEATHERAPI_URL)
+CURRENT_API_KEY = os.getenv('CURRENT_API_KEY')
+
 CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
+CELERY_TASKS_PATH = "./weather_data"
 MIN_TEMP = -50.0
 MAX_TEMP = 50.0
 
