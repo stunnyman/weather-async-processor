@@ -24,3 +24,21 @@ https://api.weatherbit.io/v2.0/current
     CELERY_BROKER_URL   
     CELERY_BROKER_URL
     this is default value for both- 'redis://localhost:6379/0'
+
+
+
+[
+You need to create a system for asynchronous weather data processing that:
+1. Accepts a list of cities from the user via an HTTP POST request.
+2. Fetches weather data for each city using an external API.
+3. Saves the processed results in a specific format for further analysis.
+However, you must account for the following complexities:
+
+Requirements:
+● Use Celery and Redis for asynchronous processing.
+● API errors must be logged with error details.
+● Code must be structured to scale for multiple regions.
+● Additional implementation requirements:
+○ Validate input using regular expressions.
+○ Support API keys for multiple external services.
+]
